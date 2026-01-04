@@ -24,7 +24,7 @@
 └─────────────────────────────────────────────────────────────────┘
 
   3. GitHub receives your push
-     └── Repo: github.com/aditiyah7/LTQ-Sites
+     └── Repo: github.com/frog-sand/Lets-Trade-Quotex-LP
 
   4. GitHub Actions triggers
      └── .github/workflows/deploy.yml starts
@@ -83,7 +83,7 @@
 ## Key Components
 
 ### 1. GitHub Repository
-- **Location**: https://github.com/aditiyah7/LTQ-Sites
+- **Location**: https://github.com/frog-sand/Lets-Trade-Quotex-LP
 - **Purpose**: Version control and trigger point for deployments
 
 ### 2. GitHub Actions
@@ -176,7 +176,7 @@ Just create folders in `sites/` - no config needed!
 Issue: Site not updating after push
   │
   ├─→ Check GitHub Actions
-  │   └── https://github.com/aditiyah7/LTQ-Sites/actions
+  │   └── https://github.com/frog-sand/Lets-Trade-Quotex-LP/actions
   │       ├─→ Green ✓: Deployment succeeded
   │       └─→ Red ✗: Check logs for error
   │

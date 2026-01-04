@@ -12,7 +12,7 @@ echo "Starting deployment..."
 rm -rf $REPO_DIR
 
 # Clone the repository using SSH
-git clone git@github.com:aditiyah7/LTQ-Sites.git $REPO_DIR
+git clone git@github.com:frog-sand/Lets-Trade-Quotex-LP.git $REPO_DIR
 
 # Copy sites to web directory (from sites/ folder)
 sudo mkdir -p $SITES_DIR

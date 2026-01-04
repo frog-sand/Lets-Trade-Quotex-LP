@@ -19,7 +19,7 @@ This guide will help you deploy your multi-landing-page website with automatic d
    - AWS EC2 (Free tier)
    - Linode ($5/month)
    - Or use Qhoster VPS if available
-3. **GitHub Account**: Repository at https://github.com/aditiyah7/LTQ-Sites
+3. **GitHub Account**: Repository at https://github.com/frog-sand/Lets-Trade-Quotex-LP
 
 ---
 
@@ -106,7 +106,7 @@ cat /root/.ssh/id_ed25519.pub
 ```
 
 Copy the output, then:
-1. Go to: https://github.com/aditiyah7/LTQ-Sites/settings/keys
+1. Go to: https://github.com/frog-sand/Lets-Trade-Quotex-LP/settings/keys
 2. Click **"Add deploy key"**
 3. Title: `Server Deploy Key`
 4. Paste the key
@@ -116,7 +116,7 @@ Copy the output, then:
 Test the connection:
 ```bash
 ssh -T git@github.com
-# Should say: "Hi aditiyah7/LTQ-Sites! You've successfully authenticated"
+# Should say: "Hi frog-sand/Lets-Trade-Quotex-LP! You've successfully authenticated"
 ```
 
 #### Step 4: Configure Nginx
@@ -137,7 +137,7 @@ git push
 On **server**:
 ```bash
 # Clone repo temporarily to get config
-git clone git@github.com:aditiyah7/LTQ-Sites.git /tmp/ltq-setup
+git clone git@github.com:frog-sand/Lets-Trade-Quotex-LP.git /tmp/ltq-setup
 cd /tmp/ltq-setup
 
 # Copy nginx config
@@ -183,7 +183,7 @@ cat /root/.ssh/id_ed25519
 Copy the entire output (including `-----BEGIN OPENSSH PRIVATE KEY-----` and `-----END OPENSSH PRIVATE KEY-----`)
 
 Now on **GitHub**:
-1. Go to: https://github.com/aditiyah7/LTQ-Sites/settings/secrets/actions
+1. Go to: https://github.com/frog-sand/Lets-Trade-Quotex-LP/settings/secrets/actions
 2. Click **"New repository secret"**
 3. Add these secrets:
 
@@ -207,7 +207,7 @@ git push
 
 #### Step 3: Test Auto-Deployment
 
-1. Go to: https://github.com/aditiyah7/LTQ-Sites/actions
+1. Go to: https://github.com/frog-sand/Lets-Trade-Quotex-LP/actions
 2. You should see a workflow run started
 3. Wait for it to complete (green checkmark)
 4. Visit: `http://letstradequotex.com/Black/` to verify
@@ -282,7 +282,7 @@ tail -f /var/log/nginx/error.log
 ```
 
 ### GitHub Actions failing
-1. Check: https://github.com/aditiyah7/LTQ-Sites/actions
+1. Check: https://github.com/frog-sand/Lets-Trade-Quotex-LP/actions
 2. Click on failed workflow
 3. Check logs for errors
 4. Verify GitHub secrets are set correctly
@@ -345,9 +345,9 @@ ls -la /var/www/letstradequotex.com/
 
 ### URLs
 
-- Repository: https://github.com/aditiyah7/LTQ-Sites
-- GitHub Actions: https://github.com/aditiyah7/LTQ-Sites/actions
-- GitHub Secrets: https://github.com/aditiyah7/LTQ-Sites/settings/secrets/actions
+- Repository: https://github.com/frog-sand/Lets-Trade-Quotex-LP
+- GitHub Actions: https://github.com/frog-sand/Lets-Trade-Quotex-LP/actions
+- GitHub Secrets: https://github.com/frog-sand/Lets-Trade-Quotex-LP/settings/secrets/actions
 
 ---
 

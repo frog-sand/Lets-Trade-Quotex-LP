@@ -33,7 +33,7 @@ In Qhoster DNS settings for `letstradequotex.com`:
 ssh root@YOUR_SERVER_IP
 
 # Download and run setup script
-curl -o setup-server.sh https://raw.githubusercontent.com/aditiyah7/LTQ-Sites/main/server-setup/setup-server.sh
+curl -o setup-server.sh https://raw.githubusercontent.com/frog-sand/Lets-Trade-Quotex-LP/main/server-setup/setup-server.sh
 chmod +x setup-server.sh
 ./setup-server.sh
 ```
@@ -45,12 +45,12 @@ ssh-keygen -t ed25519 -C "deploy@ltq" -f ~/.ssh/id_ed25519 -N ""
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Add the output to: https://github.com/aditiyah7/LTQ-Sites/settings/keys
+Add the output to: https://github.com/frog-sand/Lets-Trade-Quotex-LP/settings/keys
 
 ### 5. Configure Nginx (5 minutes)
 ```bash
 # Get config from repo
-git clone git@github.com:aditiyah7/LTQ-Sites.git /tmp/ltq
+git clone git@github.com:frog-sand/Lets-Trade-Quotex-LP.git /tmp/ltq
 cp /tmp/ltq/nginx-config/letstradequotex.com.conf /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/letstradequotex.com.conf /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-enabled/default
@@ -71,7 +71,7 @@ Get server SSH key:
 cat ~/.ssh/id_ed25519
 ```
 
-Add GitHub secrets at: https://github.com/aditiyah7/LTQ-Sites/settings/secrets/actions
+Add GitHub secrets at: https://github.com/frog-sand/Lets-Trade-Quotex-LP/settings/secrets/actions
 
 | Secret Name | Value |
 |------------|-------|
@@ -95,7 +95,7 @@ certbot --nginx -d letstradequotex.com -d www.letstradequotex.com
    git commit -m "Test auto-deploy"
    git push
    ```
-3. Watch it deploy at: https://github.com/aditiyah7/LTQ-Sites/actions
+3. Watch it deploy at: https://github.com/frog-sand/Lets-Trade-Quotex-LP/actions
 4. Visit: `https://letstradequotex.com/Black/`
 
 ## 🎉 Done!
@@ -111,6 +111,6 @@ See [DEPLOYMENT-GUIDE.md](DEPLOYMENT-GUIDE.md) for detailed instructions.
 
 ## 🆘 Issues?
 
-1. Check GitHub Actions: https://github.com/aditiyah7/LTQ-Sites/actions
+1. Check GitHub Actions: https://github.com/frog-sand/Lets-Trade-Quotex-LP/actions
 2. Check server nginx logs: `tail -f /var/log/nginx/error.log`
 3. Verify DNS: `nslookup letstradequotex.com`
