@@ -3,7 +3,7 @@
 set -e
 
 REPO_DIR="/tmp/html-sites-deploy"
-SITES_DIR="/var/www/eliteworld.online"
+SITES_DIR="/var/www/letstradequotex.com"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Starting deployment..."
@@ -11,8 +11,8 @@ echo "Starting deployment..."
 # Clean up previous deployment
 rm -rf $REPO_DIR
 
-# Clone the repository using SSH (CHANGED FROM HTTPS)
-git clone git@github.com:aditiyah7/Meta-LP.git $REPO_DIR
+# Clone the repository using SSH
+git clone git@github.com:aditiyah7/LTQ-Sites.git $REPO_DIR
 
 # Copy sites to web directory (from sites/ folder)
 sudo mkdir -p $SITES_DIR
