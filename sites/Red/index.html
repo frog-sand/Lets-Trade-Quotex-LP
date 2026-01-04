@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn Trading Step by Step</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1759686538046553');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1759686538046553&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .container img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Glow effect layer - behind the button */
+    .btn-glow {
+      position: absolute;
+      left: 50%;
+      top: 23.5%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      z-index: 8;
+
+      /* Intense green glow behind */
+      background: radial-gradient(circle, rgba(57, 255, 20, 0.6), rgba(57, 255, 20, 0.3), transparent);
+      filter: blur(25px);
+      animation: glowPulse 2.5s infinite ease-in-out;
+    }
+
+    /* Neon Green Button with Effects */
+    .cta-btn {
+      position: absolute;
+      left: 50%;
+      top: 23.5%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+
+      /* Black button with gradient pattern and grid */
+      background:
+        radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.15) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(57, 255, 20, 0.12) 8px, rgba(57, 255, 20, 0.12) 9px),
+        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(57, 255, 20, 0.12) 8px, rgba(57, 255, 20, 0.12) 9px),
+        radial-gradient(circle at center, #0f0f0f 0%, #000 100%);
+      border: 3px solid #39ff14;
+
+      /* Outer glow effect on the edges */
+      box-shadow:
+        0 0 20px rgba(57, 255, 20, 0.8),
+        0 0 40px rgba(57, 255, 20, 0.6),
+        0 0 60px rgba(57, 255, 20, 0.4),
+        0 0 80px rgba(57, 255, 20, 0.2);
+
+      animation: breathe 2.5s infinite ease-in-out;
+      overflow: hidden;
+    }
+
+    /* Inner decorative circles */
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, transparent 40%, rgba(57, 255, 20, 0.08) 60%, transparent 70%);
+      border: 2px solid rgba(57, 255, 20, 0.3);
+      box-shadow:
+        0 0 15px rgba(57, 255, 20, 0.3),
+        inset 0 0 30px rgba(57, 255, 20, 0.15),
+        inset 0 0 50px rgba(57, 255, 20, 0.08);
+      animation: innerPulse 3s infinite ease-in-out;
+    }
+
+    /* Text styling with outlined effect */
+    .cta-btn::after {
+      content: "JOIN\ANOW";
+      color: #000;
+      font-weight: 900;
+      font-size: 36px;
+      font-family: 'Roboto', sans-serif;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      white-space: pre-line;
+      line-height: 1.1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      /* Outlined text effect - green outline only */
+      -webkit-text-fill-color: #000;
+      -webkit-text-stroke: 2.5px #39ff14;
+      paint-order: stroke fill;
+
+      /* Subtle glow only on the outline */
+      filter: drop-shadow(0 0 3px rgba(57, 255, 20, 0.6))
+              drop-shadow(0 0 6px rgba(0, 255, 65, 0.4));
+
+      z-index: 2;
+    }
+
+    @keyframes breathe {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow:
+          0 0 20px rgba(57, 255, 20, 0.8),
+          0 0 40px rgba(57, 255, 20, 0.6),
+          0 0 60px rgba(57, 255, 20, 0.4),
+          0 0 80px rgba(57, 255, 20, 0.2);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        box-shadow:
+          0 0 30px rgba(57, 255, 20, 1),
+          0 0 60px rgba(57, 255, 20, 0.8),
+          0 0 90px rgba(57, 255, 20, 0.6),
+          0 0 120px rgba(57, 255, 20, 0.3);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow:
+          0 0 20px rgba(57, 255, 20, 0.8),
+          0 0 40px rgba(57, 255, 20, 0.6),
+          0 0 60px rgba(57, 255, 20, 0.4),
+          0 0 80px rgba(57, 255, 20, 0.2);
+      }
+    }
+
+    @keyframes glowPulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes innerPulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+      }
+    }
+
+    /* Click area */
+    .cta-link {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="LP10.JPEG" alt="Trading Landing Page" />
+
+    <!-- Glow effect behind button -->
+    <div class="btn-glow"></div>
+
+    <a
+      href="letstradequotex3.netlify.app"
+      class="cta-btn"
+      onclick="handleButtonClick(event);"
+    ></a>
+  </div>
+
+  <script>
+    // CAPI Server URL - Update this with your actual server URL
+    const CAPI_SERVER_URL = 'http://localhost:3000/api/track';
+
+    // Get Facebook cookies for better tracking
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    // Send event to CAPI server
+    async function sendToCapiServer(eventName) {
+      try {
+        const fbp = getCookie('_fbp');
+        const fbc = getCookie('_fbc');
+
+        const payload = {
+          eventName: eventName,
+          eventSourceUrl: window.location.href,
+          userAgent: navigator.userAgent,
+          fbp: fbp,
+          fbc: fbc,
+        };
+
+        await fetch(CAPI_SERVER_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        console.log('Event sent to CAPI:', eventName);
+      } catch (error) {
+        console.error('CAPI Error:', error);
+      }
+    }
+
+    // Handle button click
+    function handleButtonClick(event) {
+      // Client-side tracking (existing)
+      fbq('track', 'Subscribe');
+
+      // Server-side tracking (new)
+      sendToCapiServer('Subscribe');
+
+      // Allow navigation to continue
+      return true;
+    }
+
+    // Track PageView on load (server-side)
+    window.addEventListener('load', function() {
+      sendToCapiServer('PageView');
+    });
+  </script>
+
+</body>
+</html>
