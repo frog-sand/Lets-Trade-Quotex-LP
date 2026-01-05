@@ -222,9 +222,67 @@
     <a
       href="https://t.me/+qCa_wesoyoQzNmI9"
       class="cta-btn"
-      onclick="fbq('track', 'Subscribe');"
+      onclick="handleButtonClick(event);"
     ></a>
   </div>
+
+  <script>
+    // CAPI Server URL - Update this with your actual server URL
+    const CAPI_SERVER_URL = 'http://localhost:3000/api/track';
+
+    // Get Facebook cookies for better tracking
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    // Send event to CAPI server
+    async function sendToCapiServer(eventName) {
+      try {
+        const fbp = getCookie('_fbp');
+        const fbc = getCookie('_fbc');
+
+        const payload = {
+          eventName: eventName,
+          eventSourceUrl: window.location.href,
+          userAgent: navigator.userAgent,
+          fbp: fbp,
+          fbc: fbc,
+        };
+
+        await fetch(CAPI_SERVER_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        console.log('Event sent to CAPI:', eventName);
+      } catch (error) {
+        console.error('CAPI Error:', error);
+      }
+    }
+
+    // Handle button click
+    function handleButtonClick(event) {
+      // Client-side tracking (existing)
+      fbq('track', 'Subscribe');
+
+      // Server-side tracking (new)
+      sendToCapiServer('Subscribe');
+
+      // Allow navigation to continue
+      return true;
+    }
+
+    // Track PageView on load (server-side)
+    window.addEventListener('load', function() {
+      sendToCapiServer('PageView');
+    });
+  </script>
 
 </body>
 </html>
