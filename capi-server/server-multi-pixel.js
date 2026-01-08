@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Load pixel configuration
-const PIXEL_CONFIG = require(path.join(__dirname, '..', 'pixel-config.js'));
+const PIXEL_CONFIG = require(path.join(__dirname, 'pixel-config.js'));
 
 // Middleware
 app.use(cors());
