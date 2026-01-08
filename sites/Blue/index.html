@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learn Trading Step by Step</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <title>Lets Trade Quotex - Professional Trading Education</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -33,203 +33,568 @@
     }
 
     body {
-      background: #000;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      position: relative;
-      width: 100%;
-      max-width: 480px;
-      margin: auto;
-    }
-
-    .container img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Glow effect layer - behind the button */
-    .btn-glow {
-      position: absolute;
-      left: 50%;
-      top: 16%;
-      transform: translate(-50%, -50%);
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      z-index: 8;
-
-      /* Intense green glow behind */
-      background: radial-gradient(circle, rgba(57, 255, 20, 0.6), rgba(57, 255, 20, 0.3), transparent);
-      filter: blur(25px);
-      animation: glowPulse 2.5s infinite ease-in-out;
-    }
-
-    /* Neon Green Button with Effects */
-    .cta-btn {
-      position: absolute;
-      left: 50%;
-      top: 16%;
-      transform: translate(-50%, -50%);
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-
-      /* Black button with gradient pattern and grid */
-      background:
-        radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.15) 0%, transparent 50%),
-        repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(57, 255, 20, 0.12) 8px, rgba(57, 255, 20, 0.12) 9px),
-        repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(57, 255, 20, 0.12) 8px, rgba(57, 255, 20, 0.12) 9px),
-        radial-gradient(circle at center, #0f0f0f 0%, #000 100%);
-      border: 3px solid #39ff14;
-
-      /* Outer glow effect on the edges */
-      box-shadow:
-        0 0 20px rgba(57, 255, 20, 0.8),
-        0 0 40px rgba(57, 255, 20, 0.6),
-        0 0 60px rgba(57, 255, 20, 0.4),
-        0 0 80px rgba(57, 255, 20, 0.2);
-
-      animation: breathe 2.5s infinite ease-in-out;
-      overflow: hidden;
-    }
-
-    /* Inner decorative circles */
-    .cta-btn::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, transparent 40%, rgba(57, 255, 20, 0.08) 60%, transparent 70%);
-      border: 2px solid rgba(57, 255, 20, 0.3);
-      box-shadow:
-        0 0 15px rgba(57, 255, 20, 0.3),
-        inset 0 0 30px rgba(57, 255, 20, 0.15),
-        inset 0 0 50px rgba(57, 255, 20, 0.08);
-      animation: innerPulse 3s infinite ease-in-out;
-    }
-
-    /* Text styling with outlined effect */
-    .cta-btn::after {
-      content: "JOIN\ANOW";
-      color: #000;
-      font-weight: 900;
-      font-size: 28px;
       font-family: 'Roboto', sans-serif;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      border-bottom: 2px solid #0099ff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0099ff;
+      text-shadow: 0 0 20px rgba(0, 153, 255, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0099ff;
+      text-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
       text-align: center;
-      white-space: pre-line;
-      line-height: 1.1;
-      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #0099ff 0%, #00ccff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(0, 153, 255, 0.3);
+    }
+
+    .hero p {
+      font-size: 22px;
+      color: #cccccc;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 25px 70px;
+      background: linear-gradient(135deg, #0099ff 0%, #00ccff 100%);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 24px;
+      border-radius: 50px;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 40px rgba(0, 153, 255, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
       text-transform: uppercase;
-
-      /* Outlined text effect - green outline only */
-      -webkit-text-fill-color: #000;
-      -webkit-text-stroke: 2.5px #39ff14;
-      paint-order: stroke fill;
-
-      /* Subtle glow only on the outline */
-      filter: drop-shadow(0 0 3px rgba(57, 255, 20, 0.6))
-              drop-shadow(0 0 6px rgba(0, 255, 65, 0.4));
-
-      z-index: 2;
+      letter-spacing: 2px;
+      position: relative;
+      overflow: hidden;
+      animation: pulse 2s infinite;
     }
 
-    @keyframes breathe {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        box-shadow:
-          0 0 20px rgba(57, 255, 20, 0.8),
-          0 0 40px rgba(57, 255, 20, 0.6),
-          0 0 60px rgba(57, 255, 20, 0.4),
-          0 0 80px rgba(57, 255, 20, 0.2);
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 40px rgba(0, 153, 255, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
       }
       50% {
-        transform: translate(-50%, -50%) scale(1.15);
-        box-shadow:
-          0 0 30px rgba(57, 255, 20, 1),
-          0 0 60px rgba(57, 255, 20, 0.8),
-          0 0 90px rgba(57, 255, 20, 0.6),
-          0 0 120px rgba(57, 255, 20, 0.3);
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        box-shadow:
-          0 0 20px rgba(57, 255, 20, 0.8),
-          0 0 40px rgba(57, 255, 20, 0.6),
-          0 0 60px rgba(57, 255, 20, 0.4),
-          0 0 80px rgba(57, 255, 20, 0.2);
+        box-shadow: 0 0 60px rgba(0, 153, 255, 0.9), 0 5px 25px rgba(0, 0, 0, 0.4);
       }
     }
 
-    @keyframes glowPulse {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.3);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-      }
-    }
-
-    @keyframes innerPulse {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.6;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.05);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.6;
-      }
-    }
-
-    /* Click area */
-    .cta-link {
+    .cta-button::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      z-index: 20;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 0 0 80px rgba(0, 153, 255, 1), 0 10px 30px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(135deg, #00ccff 0%, #0099ff 100%);
+    }
+
+    .cta-button:active {
+      transform: scale(1.02) translateY(-1px);
+    }
+
+    /* Features Section */
+    .features {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 60px;
+      color: #0099ff;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: rgba(0, 153, 255, 0.05);
+      border: 2px solid #0099ff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 40px rgba(0, 153, 255, 0.3);
+      background: rgba(0, 153, 255, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #0099ff;
+    }
+
+    .feature-card p {
+      color: #cccccc;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: #0099ff;
+    }
+
+    .testimonials-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #cccccc;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: rgba(0, 153, 255, 0.05);
+      border: 2px solid #0099ff;
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0, 153, 255, 0.3);
+      background: rgba(0, 153, 255, 0.1);
+    }
+
+    .testimonial-rating {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .testimonial-author strong {
+      color: #0099ff;
+      font-size: 16px;
+    }
+
+    .testimonial-author span {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* Stats Section */
+    .stats {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 153, 255, 0.05);
+      border: 2px solid #0099ff;
+      border-radius: 15px;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 40px rgba(0, 153, 255, 0.3);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: #0099ff;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: #cccccc;
+      font-weight: 500;
+    }
+
+    /* Final CTA Section */
+    .final-cta {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 60px 40px;
+      text-align: center;
+      background: rgba(0, 153, 255, 0.05);
+      border: 2px solid #0099ff;
+      border-radius: 30px;
+      box-shadow: 0 0 40px rgba(0, 153, 255, 0.2);
+    }
+
+    .final-cta h2 {
+      font-size: 38px;
+      font-weight: 900;
+      color: #0099ff;
+      margin-bottom: 20px;
+    }
+
+    .final-cta p {
+      font-size: 18px;
+      color: #cccccc;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .cta-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .benefit-item {
+      color: #0099ff;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 2px solid #0099ff;
+      padding: 40px 20px;
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-container p {
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .footer-links a {
+      color: #0099ff;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .footer-links a:hover {
+      text-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .features h2,
+      .testimonials h2 {
+        font-size: 32px;
+      }
+
+      .cta-button {
+        padding: 20px 40px;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+      }
+
+      .final-cta {
+        padding: 40px 20px;
+        margin: 40px 20px;
+      }
+
+      .final-cta h2 {
+        font-size: 28px;
+      }
+
+      .final-cta p {
+        font-size: 16px;
+      }
+
+      .cta-benefits {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .stat-number {
+        font-size: 36px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <img src="LP2.JPEG" alt="Trading Landing Page" />
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">LETS TRADE QUOTEX</div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#testimonials">Success Stories</a>
+        <a href="https://t.me/+qCa_wesoyoQzNmI9" target="_blank">Join Community</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Glow effect behind button -->
-    <div class="btn-glow"></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Master Trading Step by Step</h1>
+    <p>Join thousands of successful traders who learned the secrets of profitable trading. Our proven system helps beginners become confident traders.</p>
+    <a href="https://t.me/+qCa_wesoyoQzNmI9" class="cta-button" onclick="handleCTAClick(event);">Join Now</a>
+  </section>
 
-    <a
-      href="https://t.me/+qCa_wesoyoQzNmI9"
-      class="cta-btn"
-      onclick="handleButtonClick(event);"
-    ></a>
-  </div>
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <h2>Why Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Comprehensive Learning</h3>
+        <p>Step-by-step courses designed for beginners to advanced traders with real-world strategies.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Proven Strategies</h3>
+        <p>Learn tested trading strategies that work in real market conditions from experienced professionals.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Community Support</h3>
+        <p>Join our active community of traders sharing insights, tips, and success stories daily.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Risk Management</h3>
+        <p>Master the art of protecting your capital with professional risk management techniques.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Real-Time Signals</h3>
+        <p>Get instant trading signals and market analysis delivered directly to your device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Success Guarantee</h3>
+        <p>Follow our system and see results, or get personalized coaching to help you succeed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories Section -->
+  <section class="testimonials" id="testimonials">
+    <h2>Success Stories</h2>
+    <p class="testimonials-subtitle">See what our community members are saying</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"I started with zero knowledge and now I'm making consistent profits. The step-by-step approach really works!"</p>
+        <div class="testimonial-author">
+          <strong>Rajesh K.</strong>
+          <span>Member since 2024</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"The community support is amazing. I get help whenever I need it, and the signals are incredibly accurate."</p>
+        <div class="testimonial-author">
+          <strong>Priya S.</strong>
+          <span>Member since 2024</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"Best investment I've made. The risk management techniques alone have saved me thousands."</p>
+        <div class="testimonial-author">
+          <strong>Amit M.</strong>
+          <span>Member since 2023</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">5000+</div>
+        <div class="stat-label">Active Traders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Support Available</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Daily Signals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta">
+    <h2>Ready to Start Your Trading Journey?</h2>
+    <p>Join our community today and get instant access to all our resources, signals, and expert guidance.</p>
+    <a href="https://t.me/+qCa_wesoyoQzNmI9" class="cta-button" onclick="handleCTAClick(event);">Join Our Community Now</a>
+    <div class="cta-benefits">
+      <div class="benefit-item">✓ Instant access to trading signals</div>
+      <div class="benefit-item">✓ Step-by-step learning materials</div>
+      <div class="benefit-item">✓ 24/7 community support</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 Lets Trade Quotex. All rights reserved.</p>
+      <p>Professional Trading Education & Community</p>
+      <div class="footer-links">
+        <a href="https://t.me/+qCa_wesoyoQzNmI9" target="_blank">Telegram Community</a>
+        <a href="#features">Features</a>
+        <a href="#testimonials">Success Stories</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // CAPI Server URL and Landing Page Name
     const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
-    const LANDING_PAGE_NAME = 'Blue';
+    const LANDING_PAGE_NAME = 'Blue2.0';
 
     // Get Facebook cookies for better tracking
     function getCookie(name) {
@@ -268,19 +633,19 @@
       }
     }
 
-    // Handle button click
-    function handleButtonClick(event) {
-      // Client-side tracking (existing)
+    // Handle CTA button click
+    function handleCTAClick(event) {
+      // Client-side tracking
       fbq('track', 'Subscribe');
 
-      // Server-side tracking (new)
+      // Server-side tracking
       sendToCapiServer('Subscribe');
 
       // Allow navigation to continue
       return true;
     }
 
-    // Track PageView on load (server-side)
+    // Track PageView on load
     window.addEventListener('load', function() {
       sendToCapiServer('PageView');
     });
