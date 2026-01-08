@@ -28,8 +28,8 @@ const PIXEL_CONFIG = {
 
   // Grey Landing Page
   'Grey': {
-    pixelId: '25618509431149818',
-    accessToken: 'YOUR_GREY_ACCESS_TOKEN_HERE'
+    pixelId: '1498315231226863',
+    accessToken: 'EAARW0zbv2DMBQbSbn7FAQqNkzcmdv3JoHwKt4uailzHZBHLY1c0K57ZBztiAumNZCGMmtYvEsCUK2kHFRUGRZCeohi4TEUEoYa1pCmwC8m8ZCNkrbxCZCrKcKzgfICZAtZABpGUvAjgaCics4HxSDodshO6BzkuJ06iUto1blniZB6ljciZAURWrJKFaB5Gl7kYbkWfQZDZD'
   },
 
   // Peach Landing Page
