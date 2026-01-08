@@ -227,8 +227,9 @@
   </div>
 
   <script>
-    // CAPI Server URL - Update this with your actual server URL
-    const CAPI_SERVER_URL = 'http://localhost:3000/api/track';
+    // CAPI Server URL and Landing Page Name
+    const CAPI_SERVER_URL = 'https://letstradequotex.com:3000/api/track';
+    const LANDING_PAGE_NAME = 'Blue';
 
     // Get Facebook cookies for better tracking
     function getCookie(name) {
@@ -250,6 +251,7 @@
           userAgent: navigator.userAgent,
           fbp: fbp,
           fbc: fbc,
+          landingPage: LANDING_PAGE_NAME,
         };
 
         await fetch(CAPI_SERVER_URL, {
