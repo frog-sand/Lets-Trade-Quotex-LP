@@ -262,9 +262,9 @@
           body: JSON.stringify(payload),
         });
 
-        console.log('Event sent to CAPI:', eventName);
+        // Event sent silently
       } catch (error) {
-        console.error('CAPI Error:', error);
+        // CAPI error suppressed
       }
     }
 
