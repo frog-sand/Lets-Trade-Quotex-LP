@@ -40,7 +40,7 @@ const PIXEL_CONFIG = {
 
   // Pink Landing Page
   'Pink': {
-    pixelId: '1759686538046553',
+    pixelId: '1498315231226863',
     accessToken: 'EAARW0zbv2DMBQQ2Tc6FOVZBSAlEnswD8elztyZC6GYzkMm45Cqs2AIaTLvRmWIYb7xpmpEyuZBgDJeXiUqKNIFpOcgZB8vdN8hvi5Dh6lYLw7YtKnynexhtO5CmDtdNcXfPFKJUKZC5ujOJWIFZAva570wNf3HbZBInMLAZBcomttDhty7NxFqLrRYOsr6MPiTWsDwZDZD'
   },
 
