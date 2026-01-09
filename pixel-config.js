@@ -32,6 +32,12 @@ const PIXEL_CONFIG = {
     accessToken: 'EAARW0zbv2DMBQbSbn7FAQqNkzcmdv3JoHwKt4uailzHZBHLY1c0K57ZBztiAumNZCGMmtYvEsCUK2kHFRUGRZCeohi4TEUEoYa1pCmwC8m8ZCNkrbxCZCrKcKzgfICZAtZABpGUvAjgaCics4HxSDodshO6BzkuJ06iUto1blniZB6ljciZAURWrJKFaB5Gl7kYbkWfQZDZD'
   },
 
+  // Grey2.0 Landing Page
+  'Grey2.0': {
+    pixelId: '1759686538046553',
+    accessToken: 'EAARW0zbv2DMBQbSbn7FAQqNkzcmdv3JoHwKt4uailzHZBHLY1c0K57ZBztiAumNZCGMmtYvEsCUK2kHFRUGRZCeohi4TEUEoYa1pCmwC8m8ZCNkrbxCZCrKcKzgfICZAtZABpGUvAjgaCics4HxSDodshO6BzkuJ06iUto1blniZB6ljciZAURWrJKFaB5Gl7kYbkWfQZDZD'
+  },
+
   // Peach Landing Page
   'Peach': {
     pixelId: '3340672712761892',
