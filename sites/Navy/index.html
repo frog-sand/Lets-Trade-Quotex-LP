@@ -56,7 +56,7 @@
     /* Header */
     header {
       background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
+      
       padding: 20px 0;
       border-bottom: 2px solid #000080;
       position: sticky;
@@ -89,7 +89,7 @@
       color: #ffffff;
       text-decoration: none;
       font-weight: 500;
-      transition: all 0.3s;
+      transition: none;
     }
 
     .nav-links a:hover {
@@ -135,19 +135,16 @@
       font-weight: 900;
       font-size: 24px;
       border-radius: 50px;
-      transition: all 0.4s ease;
+      transition: none;
       box-shadow: 0 0 40px rgba(0, 0, 128, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
       text-transform: uppercase;
       letter-spacing: 2px;
       position: relative;
       overflow: hidden;
-      animation: pulse 2s infinite;
+      
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 40px rgba(0, 0, 128, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
-      }
+    
       50% {
         box-shadow: 0 0 60px rgba(0, 0, 128, 0.9), 0 5px 25px rgba(0, 0, 0, 0.4);
       }
@@ -161,7 +158,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
+      transition: none;
     }
 
     .cta-button:hover::before {
@@ -204,13 +201,13 @@
       border: 2px solid #000080;
       border-radius: 20px;
       padding: 40px 30px;
-      transition: all 0.3s;
+      transition: none;
       text-align: center;
     }
 
     .feature-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 40px rgba(0, 0, 128, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       background: rgba(0, 0, 128, 0.1);
     }
 
@@ -265,12 +262,12 @@
       border: 2px solid #000080;
       border-radius: 20px;
       padding: 30px;
-      transition: all 0.3s;
+      transition: none;
     }
 
     .testimonial-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(0, 0, 128, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       background: rgba(0, 0, 128, 0.1);
     }
 
@@ -322,12 +319,12 @@
       background: rgba(0, 0, 128, 0.05);
       border: 2px solid #000080;
       border-radius: 15px;
-      transition: all 0.3s;
+      transition: none;
     }
 
     .stat-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 10px 40px rgba(0, 0, 128, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .stat-number {
@@ -412,7 +409,7 @@
     .footer-links a {
       color: #000080;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: none;
     }
 
     .footer-links a:hover {
@@ -619,32 +616,45 @@
     }
 
     // Send event to CAPI server
-    async function sendToCapiServer(eventName) {
-      try {
-        const fbp = getCookie('_fbp');
-        const fbc = getCookie('_fbc');
+    function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
 
-        const payload = {
-          eventName: eventName,
-          eventSourceUrl: window.location.href,
-          userAgent: navigator.userAgent,
-          fbp: fbp,
-          fbc: fbc,
-          landingPage: LANDING_PAGE_NAME,
-        };
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
 
-        await fetch(CAPI_SERVER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
 
-        // Event sent silently
-      } catch (error) {
-        // CAPI error suppressed
-      }
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
     }
 
     // Handle CTA button click

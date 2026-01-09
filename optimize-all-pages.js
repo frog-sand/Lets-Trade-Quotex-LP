@@ -175,6 +175,26 @@ landingPages.forEach(page => {
       modified = true;
     }
 
+    // 8. CRITICAL - Remove all animations for maximum speed
+    // Remove animation properties
+    content = content.replace(/animation:[^;]*;/g, '');
+    content = content.replace(/animation-[^:]*:[^;]*;/g, '');
+
+    // Remove @keyframes blocks
+    content = content.replace(/@keyframes[^{]*{[^}]*}/g, '');
+    content = content.replace(/@keyframes[^{]*{(?:[^{}]*{[^}]*})*[^}]*}/g, '');
+
+    // Remove transitions (optional - uncomment if still slow)
+    content = content.replace(/transition:[^;]*;/g, 'transition: none;');
+
+    // Remove backdrop-filter (can be slow on some devices)
+    content = content.replace(/backdrop-filter:[^;]*;/g, '');
+
+    // Remove will-change (not needed without animations)
+    content = content.replace(/will-change:[^;]*;/g, '');
+
+    modified = true;
+
     if (modified) {
       // Create backup
       const backupPath = indexPath.replace('.html', '.backup.html');

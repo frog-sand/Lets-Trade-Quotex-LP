@@ -121,10 +121,14 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 32px;
-      
+      animation: slideInLeft 0.8s ease;
     }
 
-    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
       to {
         opacity: 1;
         transform: translateX(0);
@@ -137,7 +141,7 @@
       line-height: 1;
       margin-bottom: 32px;
       letter-spacing: -3px;
-      
+      animation: slideInLeft 0.8s ease 0.2s both;
     }
 
     .hero h1 .gradient {
@@ -153,13 +157,13 @@
       color: #a0a0a0;
       margin-bottom: 48px;
       max-width: 600px;
-      
+      animation: slideInLeft 0.8s ease 0.4s both;
     }
 
     .hero-cta-group {
       display: flex;
       gap: 20px;
-      
+      animation: slideInLeft 0.8s ease 0.6s both;
     }
 
     .cta-btn {
@@ -171,7 +175,7 @@
       font-weight: 700;
       font-size: 17px;
       text-decoration: none;
-      transition: none;
+      transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
     }
@@ -179,13 +183,16 @@
     .cta-btn-primary {
       background: linear-gradient(135deg, var(--pink-primary), var(--pink-secondary));
       color: white;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      
+      box-shadow: 0 20px 60px rgba(236, 72, 153, 0.4);
+      animation: btnPulse 3s ease-in-out infinite;
     }
 
-    
+    @keyframes btnPulse {
+      0%, 100% {
+        box-shadow: 0 20px 60px rgba(236, 72, 153, 0.4);
+      }
       50% {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 20px 80px rgba(236, 72, 153, 0.6);
       }
     }
 
@@ -195,7 +202,7 @@
       inset: 0;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transform: translateX(-100%);
-      transition: none;
+      transition: transform 0.6s;
     }
 
     .cta-btn-primary:hover::before {
@@ -204,7 +211,7 @@
 
     .cta-btn-primary:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 25px 80px rgba(236, 72, 153, 0.6);
     }
 
     .cta-btn-secondary {
@@ -222,10 +229,14 @@
     .hero-cards {
       position: relative;
       height: 600px;
-      
+      animation: slideInRight 0.8s ease 0.3s both;
     }
 
-    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
       to {
         opacity: 1;
         transform: translateX(0);
@@ -235,51 +246,54 @@
     .floating-card {
       position: absolute;
       background: rgba(26, 26, 26, 0.8);
-      
+      backdrop-filter: blur(20px);
       border: 1px solid rgba(236, 72, 153, 0.2);
       border-radius: 24px;
       padding: 32px;
-      transition: none;
-      
-      
+      transition: all 0.3s ease;
+      will-change: transform;
+      transform: translateZ(0);
     }
 
     .floating-card:hover {
       transform: translateY(-10px) !important;
       border-color: var(--pink-primary);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 30px 60px rgba(236, 72, 153, 0.3);
     }
 
     .card-1 {
       top: 0;
       right: 0;
       width: 300px;
-      
+      animation: float1 6s ease-in-out infinite;
     }
 
     .card-2 {
       bottom: 150px;
       left: 0;
       width: 280px;
-      
+      animation: float2 7s ease-in-out infinite;
     }
 
     .card-3 {
       top: 200px;
       right: 80px;
       width: 260px;
-      
+      animation: float3 8s ease-in-out infinite;
     }
 
-    
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-20px); }
     }
 
-    
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-25px); }
     }
 
-    
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
 
@@ -370,17 +384,17 @@
     .feature-card {
       min-width: 380px;
       background: rgba(26, 26, 26, 0.6);
-      
+      backdrop-filter: blur(20px);
       border: 1px solid rgba(236, 72, 153, 0.15);
       border-radius: 32px;
       padding: 48px;
-      transition: none;
+      transition: all 0.3s ease;
     }
 
     .feature-card:hover {
       border-color: var(--pink-primary);
       transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 30px 60px rgba(236, 72, 153, 0.25);
     }
 
     .feature-number {
@@ -429,17 +443,17 @@
 
     .testimonial-item {
       background: rgba(26, 26, 26, 0.6);
-      
+      backdrop-filter: blur(20px);
       border: 1px solid rgba(236, 72, 153, 0.15);
       border-radius: 24px;
       padding: 40px;
-      transition: none;
+      transition: all 0.3s ease;
     }
 
     .testimonial-item:hover {
       border-color: var(--pink-primary);
       transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 25px 50px rgba(236, 72, 153, 0.2);
     }
 
     .testimonial-top {
@@ -559,7 +573,7 @@
       color: var(--pink-primary);
       text-decoration: none;
       font-weight: 600;
-      transition: none;
+      transition: color 0.3s ease;
     }
 
     .footer-nav a:hover {

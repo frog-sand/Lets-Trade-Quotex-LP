@@ -76,7 +76,7 @@
       justify-content: space-between;
       align-items: center;
       background: rgba(10, 12, 16, 0.8);
-      backdrop-filter: blur(20px);
+      
       border-bottom: 1px solid rgba(139, 157, 195, 0.08);
     }
 
@@ -98,7 +98,7 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: none;
     }
 
     .nav-link:hover {
@@ -113,12 +113,12 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: none;
     }
 
     .top-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(139, 157, 195, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     /* Full Screen Split Hero */
@@ -146,14 +146,10 @@
       letter-spacing: 3px;
       margin-bottom: 32px;
       opacity: 0;
-      animation: fadeInUp 0.8s ease 0.2s forwards;
+      
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    
       from {
         opacity: 0;
         transform: translateY(20px);
@@ -167,7 +163,7 @@
       margin-bottom: 40px;
       letter-spacing: -3px;
       opacity: 0;
-      animation: fadeInUp 0.8s ease 0.4s forwards;
+      
     }
 
     .hero-left h1 .highlight {
@@ -181,14 +177,14 @@
       max-width: 520px;
       margin-bottom: 48px;
       opacity: 0;
-      animation: fadeInUp 0.8s ease 0.6s forwards;
+      
     }
 
     .hero-actions {
       display: flex;
       gap: 16px;
       opacity: 0;
-      animation: fadeInUp 0.8s ease 0.8s forwards;
+      
     }
 
     .btn {
@@ -200,7 +196,7 @@
       font-weight: 700;
       font-size: 16px;
       text-decoration: none;
-      transition: all 0.4s ease;
+      transition: none;
       position: relative;
       overflow: hidden;
     }
@@ -208,16 +204,13 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--grey-primary), var(--grey-secondary));
       color: white;
-      box-shadow: 0 20px 60px rgba(139, 157, 195, 0.3);
-      animation: btnFloat 3s ease-in-out infinite;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      
     }
 
-    @keyframes btnFloat {
-      0%, 100% {
-        box-shadow: 0 20px 60px rgba(139, 157, 195, 0.3);
-      }
+    
       50% {
-        box-shadow: 0 20px 80px rgba(139, 157, 195, 0.5);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
     }
 
@@ -227,7 +220,7 @@
       inset: 0;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transform: translateX(-100%);
-      transition: transform 0.6s;
+      transition: none;
     }
 
     .btn-primary:hover::before {
@@ -236,7 +229,7 @@
 
     .btn-primary:hover {
       transform: translateY(-4px);
-      box-shadow: 0 25px 80px rgba(139, 157, 195, 0.5);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .btn-outline {
@@ -278,24 +271,23 @@
       align-items: center;
       justify-content: center;
       padding: 32px;
-      transition: all 0.4s ease;
-      animation: boxFloat 6s ease-in-out infinite;
+      transition: none;
+      
     }
 
-    .image-box:nth-child(1) { animation-delay: 0s; }
-    .image-box:nth-child(2) { animation-delay: 1.5s; }
-    .image-box:nth-child(3) { animation-delay: 3s; }
-    .image-box:nth-child(4) { animation-delay: 4.5s; }
+    .image-box:nth-child(1) {  }
+    .image-box:nth-child(2) {  }
+    .image-box:nth-child(3) {  }
+    .image-box:nth-child(4) {  }
 
-    @keyframes boxFloat {
-      0%, 100% { transform: translateY(0); }
+    
       50% { transform: translateY(-15px); }
     }
 
     .image-box:hover {
       border-color: var(--grey-primary);
       transform: scale(1.05) !important;
-      box-shadow: 0 30px 60px rgba(139, 157, 195, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .box-icon {
@@ -367,13 +359,13 @@
       border: 1px solid rgba(139, 157, 195, 0.1);
       border-radius: 32px;
       padding: 56px;
-      transition: all 0.4s ease;
+      transition: none;
     }
 
     .feature-box:hover {
       border-color: var(--grey-primary);
       transform: translateY(-8px);
-      box-shadow: 0 30px 70px rgba(139, 157, 195, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .feature-icon-wrapper {
@@ -417,13 +409,13 @@
       border: 1px solid rgba(139, 157, 195, 0.1);
       border-radius: 24px;
       padding: 40px;
-      transition: all 0.3s ease;
+      transition: none;
     }
 
     .testimonial-box:hover {
       border-color: var(--grey-primary);
       transform: translateY(-8px);
-      box-shadow: 0 25px 60px rgba(139, 157, 195, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .testimonial-top {
@@ -487,11 +479,10 @@
       width: 200%;
       height: 200%;
       background: conic-gradient(from 0deg, transparent, rgba(139, 157, 195, 0.1), transparent 30%);
-      animation: spin 15s linear infinite;
+      
     }
 
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
+    
     }
 
     .cta-content {
@@ -559,7 +550,7 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
-      transition: color 0.3s ease;
+      transition: none;
     }
 
     .footer-menu a:hover {
@@ -838,32 +829,45 @@
     }
 
     // Send event to CAPI server
-    async function sendToCapiServer(eventName) {
-      try {
-        const fbp = getCookie('_fbp');
-        const fbc = getCookie('_fbc');
+    function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
 
-        const payload = {
-          eventName: eventName,
-          eventSourceUrl: window.location.href,
-          userAgent: navigator.userAgent,
-          fbp: fbp,
-          fbc: fbc,
-          landingPage: LANDING_PAGE_NAME,
-        };
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
 
-        await fetch(CAPI_SERVER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
 
-        // Event sent silently
-      } catch (error) {
-        // CAPI error suppressed
-      }
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
     }
 
     // Handle CTA button click
