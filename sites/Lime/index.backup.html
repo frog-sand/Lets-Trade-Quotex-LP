@@ -4,34 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lets Trade Quotex - Professional Trading Education</title>
-  
-  <!-- Preconnect to external domains for faster loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://connect.facebook.net">
-
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-  <!-- Meta Pixel Code - Deferred for performance -->
+  <!-- Meta Pixel Code -->
   <script>
-  window.fbAsyncInit = function() {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '844275131701075');
-    fbq('track', 'PageView');
-  };
-  // Defer pixel loading until page is interactive
-  if (document.readyState === 'complete') {
-    window.fbAsyncInit();
-  } else {
-    window.addEventListener('load', window.fbAsyncInit);
-  }
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '844275131701075');
+  fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
@@ -48,7 +34,7 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #1a0f08 0%, #2d1a0f 100%);
+      background: linear-gradient(135deg, #1a1f00 0%, #2d3600 100%);
       color: #ffffff;
       min-height: 100vh;
     }
@@ -58,7 +44,7 @@
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(10px);
       padding: 20px 0;
-      border-bottom: 2px solid #ff7f50;
+      border-bottom: 2px solid #cddc39;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -76,8 +62,8 @@
     .logo {
       font-size: 28px;
       font-weight: 900;
-      color: #ff7f50;
-      text-shadow: 0 0 20px rgba(255, 127, 80, 0.5);
+      color: #cddc39;
+      text-shadow: 0 0 20px rgba(205, 220, 57, 0.5);
     }
 
     .nav-links {
@@ -93,8 +79,8 @@
     }
 
     .nav-links a:hover {
-      color: #ff7f50;
-      text-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
+      color: #cddc39;
+      text-shadow: 0 0 10px rgba(205, 220, 57, 0.5);
     }
 
     /* Hero Section */
@@ -109,11 +95,11 @@
       font-size: 56px;
       font-weight: 900;
       margin-bottom: 20px;
-      background: linear-gradient(135deg, #ff7f50 0%, #ff6347 100%);
+      background: linear-gradient(135deg, #cddc39 0%, #d4e157 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 40px rgba(255, 127, 80, 0.3);
+      text-shadow: 0 0 40px rgba(205, 220, 57, 0.3);
     }
 
     .hero p {
@@ -129,14 +115,14 @@
     .cta-button {
       display: inline-block;
       padding: 25px 70px;
-      background: linear-gradient(135deg, #ff7f50 0%, #ff6347 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #cddc39 0%, #d4e157 100%);
+      color: #000;
       text-decoration: none;
       font-weight: 900;
       font-size: 24px;
       border-radius: 50px;
       transition: all 0.4s ease;
-      box-shadow: 0 0 40px rgba(255, 127, 80, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 40px rgba(205, 220, 57, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
       text-transform: uppercase;
       letter-spacing: 2px;
       position: relative;
@@ -146,10 +132,10 @@
 
     @keyframes pulse {
       0%, 100% {
-        box-shadow: 0 0 40px rgba(255, 127, 80, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 40px rgba(205, 220, 57, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
       }
       50% {
-        box-shadow: 0 0 60px rgba(255, 127, 80, 0.9), 0 5px 25px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 60px rgba(205, 220, 57, 0.9), 0 5px 25px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -170,8 +156,8 @@
 
     .cta-button:hover {
       transform: scale(1.08) translateY(-3px);
-      box-shadow: 0 0 80px rgba(255, 127, 80, 1), 0 10px 30px rgba(0, 0, 0, 0.5);
-      background: linear-gradient(135deg, #ff6347 0%, #ff7f50 100%);
+      box-shadow: 0 0 80px rgba(205, 220, 57, 1), 0 10px 30px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(135deg, #d4e157 0%, #cddc39 100%);
     }
 
     .cta-button:active {
@@ -190,7 +176,7 @@
       font-size: 42px;
       font-weight: 900;
       margin-bottom: 60px;
-      color: #ff7f50;
+      color: #cddc39;
     }
 
     .features-grid {
@@ -200,8 +186,8 @@
     }
 
     .feature-card {
-      background: rgba(255, 127, 80, 0.05);
-      border: 2px solid #ff7f50;
+      background: rgba(205, 220, 57, 0.05);
+      border: 2px solid #cddc39;
       border-radius: 20px;
       padding: 40px 30px;
       transition: all 0.3s;
@@ -210,8 +196,8 @@
 
     .feature-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 40px rgba(255, 127, 80, 0.3);
-      background: rgba(255, 127, 80, 0.1);
+      box-shadow: 0 10px 40px rgba(205, 220, 57, 0.3);
+      background: rgba(205, 220, 57, 0.1);
     }
 
     .feature-icon {
@@ -223,7 +209,7 @@
       font-size: 24px;
       font-weight: 700;
       margin-bottom: 15px;
-      color: #ff7f50;
+      color: #cddc39;
     }
 
     .feature-card p {
@@ -244,7 +230,7 @@
       font-size: 42px;
       font-weight: 900;
       margin-bottom: 20px;
-      color: #ff7f50;
+      color: #cddc39;
     }
 
     .testimonials-subtitle {
@@ -261,8 +247,8 @@
     }
 
     .testimonial-card {
-      background: rgba(255, 127, 80, 0.05);
-      border: 2px solid #ff7f50;
+      background: rgba(205, 220, 57, 0.05);
+      border: 2px solid #cddc39;
       border-radius: 20px;
       padding: 30px;
       transition: all 0.3s;
@@ -270,8 +256,8 @@
 
     .testimonial-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(255, 127, 80, 0.3);
-      background: rgba(255, 127, 80, 0.1);
+      box-shadow: 0 10px 40px rgba(205, 220, 57, 0.3);
+      background: rgba(205, 220, 57, 0.1);
     }
 
     .testimonial-rating {
@@ -294,7 +280,7 @@
     }
 
     .testimonial-author strong {
-      color: #ff7f50;
+      color: #cddc39;
       font-size: 16px;
     }
 
@@ -319,21 +305,21 @@
     .stat-card {
       text-align: center;
       padding: 40px 20px;
-      background: rgba(255, 127, 80, 0.05);
-      border: 2px solid #ff7f50;
+      background: rgba(205, 220, 57, 0.05);
+      border: 2px solid #cddc39;
       border-radius: 15px;
       transition: all 0.3s;
     }
 
     .stat-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 10px 40px rgba(255, 127, 80, 0.3);
+      box-shadow: 0 10px 40px rgba(205, 220, 57, 0.3);
     }
 
     .stat-number {
       font-size: 48px;
       font-weight: 900;
-      color: #ff7f50;
+      color: #cddc39;
       margin-bottom: 10px;
     }
 
@@ -349,16 +335,16 @@
       margin: 80px auto;
       padding: 60px 40px;
       text-align: center;
-      background: rgba(255, 127, 80, 0.05);
-      border: 2px solid #ff7f50;
+      background: rgba(205, 220, 57, 0.05);
+      border: 2px solid #cddc39;
       border-radius: 30px;
-      box-shadow: 0 0 40px rgba(255, 127, 80, 0.2);
+      box-shadow: 0 0 40px rgba(205, 220, 57, 0.2);
     }
 
     .final-cta h2 {
       font-size: 38px;
       font-weight: 900;
-      color: #ff7f50;
+      color: #cddc39;
       margin-bottom: 20px;
     }
 
@@ -378,7 +364,7 @@
     }
 
     .benefit-item {
-      color: #ff7f50;
+      color: #cddc39;
       font-size: 16px;
       font-weight: 500;
     }
@@ -386,7 +372,7 @@
     /* Footer */
     footer {
       background: rgba(0, 0, 0, 0.8);
-      border-top: 2px solid #ff7f50;
+      border-top: 2px solid #cddc39;
       padding: 40px 20px;
       margin-top: 100px;
       text-align: center;
@@ -410,13 +396,13 @@
     }
 
     .footer-links a {
-      color: #ff7f50;
+      color: #cddc39;
       text-decoration: none;
       transition: all 0.3s;
     }
 
     .footer-links a:hover {
-      text-shadow: 0 0 10px rgba(255, 127, 80, 0.8);
+      text-shadow: 0 0 10px rgba(205, 220, 57, 0.8);
     }
 
     /* Responsive */
@@ -608,7 +594,7 @@
   <script>
     // CAPI Server URL and Landing Page Name
     const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
-    const LANDING_PAGE_NAME = 'Coral';
+    const LANDING_PAGE_NAME = 'Lime';
 
     // Get Facebook cookies for better tracking
     function getCookie(name) {
@@ -650,9 +636,7 @@
     // Handle CTA button click
     function handleCTAClick(event) {
       // Client-side tracking
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Subscribe');
-      }
+      fbq('track', 'Subscribe');
 
       // Server-side tracking
       sendToCapiServer('Subscribe');
@@ -662,13 +646,9 @@
     }
 
     // Track PageView on load
-    if (document.readyState === 'complete') {
-      setTimeout(function() { sendToCapiServer('PageView'); }, 100);
-    } else {
-      window.addEventListener('load', function() {
-        setTimeout(function() { sendToCapiServer('PageView'); }, 100);
-      });
-    }
+    window.addEventListener('load', function() {
+      sendToCapiServer('PageView');
+    });
   </script>
 
 </body>
