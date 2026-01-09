@@ -126,18 +126,52 @@ landingPages.forEach(page => {
       modified = true;
     }
 
-    // 7. Defer PageView tracking
-    if (content.includes('sendToCapiServer(\'PageView\')') && !content.includes('setTimeout')) {
-      content = content.replace(
-        /window\.addEventListener\('load',\s*function\(\)\s*{\s*sendToCapiServer\('PageView'\);?\s*}\);/,
-        `if (document.readyState === 'complete') {
-      setTimeout(function() { sendToCapiServer('PageView'); }, 100);
-    } else {
-      window.addEventListener('load', function() {
-        setTimeout(function() { sendToCapiServer('PageView'); }, 100);
-      });
-    }`
-      );
+    // 7. CRITICAL FIX - Make CAPI calls completely non-blocking with timeout
+    if (content.includes('async function sendToCapiServer') && !content.includes('AbortController')) {
+      // Replace the entire async sendToCapiServer function with non-blocking version
+      const capiRegex = /async function sendToCapiServer\(eventName\)([\s\S]*?)}\s*}/;
+      const newCapiFunction = `function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
+
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
+
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
+
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
+    }`;
+
+      content = content.replace(capiRegex, newCapiFunction);
       modified = true;
     }
 

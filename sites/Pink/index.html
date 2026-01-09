@@ -968,33 +968,46 @@
       return null;
     }
 
-    // Send event to CAPI server
-    async function sendToCapiServer(eventName) {
-      try {
-        const fbp = getCookie('_fbp');
-        const fbc = getCookie('_fbc');
+    // Send event to CAPI server - COMPLETELY NON-BLOCKING with timeout
+    function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
 
-        const payload = {
-          eventName: eventName,
-          eventSourceUrl: window.location.href,
-          userAgent: navigator.userAgent,
-          fbp: fbp,
-          fbc: fbc,
-          landingPage: LANDING_PAGE_NAME,
-        };
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
 
-        await fetch(CAPI_SERVER_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
 
-        // Event sent silently
-      } catch (error) {
-        // CAPI error suppressed
-      }
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
     }
 
     // Handle CTA button click
@@ -1004,19 +1017,19 @@
         fbq('track', 'Subscribe');
       }
 
-      // Server-side tracking
+      // Server-side tracking - fire and forget
       sendToCapiServer('Subscribe');
 
-      // Allow navigation to continue
+      // Allow navigation to continue immediately
       return true;
     }
 
-    // Track PageView on load - defer to not block rendering
+    // Track PageView on load - completely non-blocking
     if (document.readyState === 'complete') {
-      setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+      sendToCapiServer('PageView');
     } else {
       window.addEventListener('load', function() {
-        setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+        sendToCapiServer('PageView');
       });
     }
   </script>
