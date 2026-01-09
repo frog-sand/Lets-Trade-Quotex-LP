@@ -584,7 +584,17 @@
       }
 
       .top-nav {
+        gap: 12px;
+      }
+
+      .nav-link {
         display: none;
+      }
+
+      .top-cta {
+        display: block;
+        font-size: 13px;
+        padding: 10px 20px;
       }
 
       .hero-left h1 {
@@ -631,6 +641,65 @@
       .image-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topbar {
+        padding: 16px;
+      }
+
+      .logo-text {
+        font-size: 16px;
+      }
+
+      .top-cta {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+
+      .hero-left {
+        padding: 40px 20px;
+      }
+
+      .hero-left h1 {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .section {
+        padding: 60px 16px;
+      }
+
+      .section-intro h2 {
+        font-size: 28px;
+      }
+
+      .final-cta-section {
+        padding: 80px 16px;
+      }
+
+      .cta-box-wrapper {
+        padding: 40px 20px;
+      }
+
+      .cta-box-wrapper h2 {
+        font-size: 28px;
       }
     }
   </style>
