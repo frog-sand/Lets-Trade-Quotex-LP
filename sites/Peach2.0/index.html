@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lets Trade Quotex - Elite Trading Academy</title>
+
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code - Deferred for performance -->
+  <script>
+  window.fbAsyncInit = function() {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3340672712761892');
+    fbq('track', 'PageView');
+  };
+  // Defer pixel loading until page is interactive
+  if (document.readyState === 'complete') {
+    window.fbAsyncInit();
+  } else {
+    window.addEventListener('load', window.fbAsyncInit);
+  }
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3340672712761892&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --peach-primary: #ff7f50;
+      --peach-secondary: #ff6347;
+      --peach-light: #ffa07a;
+      --dark-bg: #0f0a08;
+      --card-bg: #1a0f0d;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--dark-bg);
+      color: #ffffff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Animated Mesh Background */
+    .mesh-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 127, 80, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 99, 71, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255, 160, 122, 0.1) 0%, transparent 50%);
+    }
+
+    .floating-shapes {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+
+    }
+
+    .shape1 {
+      width: 400px;
+      height: 400px;
+      background: var(--peach-primary);
+      top: 10%;
+      left: 10%;
+
+    }
+
+    .shape2 {
+      width: 300px;
+      height: 300px;
+      background: var(--peach-secondary);
+      bottom: 20%;
+      right: 10%;
+
+    }
+
+
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-30px, 30px) scale(0.9); }
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 10, 8, 0.8);
+
+      border-bottom: 1px solid rgba(255, 127, 80, 0.1);
+    }
+
+    .nav-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-secondary));
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hero Section - Centered Full */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 40px 60px;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 127, 80, 0.1);
+      border: 1px solid rgba(255, 127, 80, 0.3);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--peach-light);
+      margin-bottom: 32px;
+
+    }
+
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 28px;
+      letter-spacing: -2px;
+
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 22px;
+      line-height: 1.6;
+      color: #b8b8b8;
+      margin-bottom: 48px;
+
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-secondary));
+      color: white;
+      padding: 20px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      transition: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+
+    }
+
+
+      50% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: translateX(-100%);
+      transition: none;
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 127, 80, 0.1);
+      color: var(--peach-primary);
+      padding: 20px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      transition: none;
+      border: 2px solid rgba(255, 127, 80, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 127, 80, 0.2);
+      border-color: var(--peach-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: -80px auto 0;
+      padding: 0 40px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .stat-box {
+      background: rgba(26, 15, 13, 0.9);
+
+      border: 1px solid rgba(255, 127, 80, 0.2);
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: none;
+
+    }
+
+    .stat-box:nth-child(1) {  }
+    .stat-box:nth-child(2) {  }
+    .stat-box:nth-child(3) {  }
+    .stat-box:nth-child(4) {  }
+
+    .stat-box:hover {
+      transform: translateY(-8px);
+      border-color: var(--peach-primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-number {
+      font-size: 44px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #888;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Features Section - Bento Grid */
+    .features {
+      max-width: 1400px;
+      margin: 120px auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--peach-primary);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      font-size: 54px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .section-title p {
+      font-size: 20px;
+      color: #888;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .bento-item {
+      background: rgba(26, 15, 13, 0.6);
+
+      border: 1px solid rgba(255, 127, 80, 0.15);
+      border-radius: 32px;
+      padding: 48px;
+      transition: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 127, 80, 0.05), transparent);
+      opacity: 0;
+      transition: none;
+    }
+
+    .bento-item:hover::before {
+      opacity: 1;
+    }
+
+    .bento-item:hover {
+      transform: translateY(-8px);
+      border-color: var(--peach-primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .bento-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-secondary));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .bento-item h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .bento-item p {
+      color: #a0a0a0;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Testimonials - Marquee Style */
+    .testimonials {
+      padding: 100px 0;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 24px;
+
+    }
+
+
+      100% { transform: translateX(-50%); }
+    }
+
+    .testimonial-card {
+      min-width: 400px;
+      background: rgba(26, 15, 13, 0.6);
+
+      border: 1px solid rgba(255, 127, 80, 0.15);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--peach-primary), var(--peach-secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .testimonial-info h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-stars {
+      color: #fbbf24;
+      font-size: 14px;
+    }
+
+    .testimonial-text {
+      color: #c0c0c0;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      max-width: 1200px;
+      margin: 120px auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-container {
+      background: linear-gradient(135deg, rgba(255, 127, 80, 0.15), rgba(255, 99, 71, 0.1));
+
+      border: 2px solid rgba(255, 127, 80, 0.3);
+      border-radius: 40px;
+      padding: 80px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 127, 80, 0.1), transparent 30%);
+
+    }
+
+
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-container h2 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .cta-container p {
+      font-size: 20px;
+      color: #a0a0a0;
+      margin-bottom: 48px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-perks {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .perk {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--peach-light);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 127, 80, 0.1);
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-text {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--peach-primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--peach-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .section-title h2 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-content {
+        padding: 20px;
+      }
+
+      .hero {
+        padding: 120px 20px 60px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 16px 32px;
+        font-size: 16px;
+      }
+
+      .stats-bar {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+
+      .features,
+      .final-cta {
+        padding: 0 20px;
+        margin: 80px auto;
+      }
+
+      .bento-item {
+        padding: 32px;
+      }
+
+      .cta-container {
+        padding: 60px 30px;
+      }
+
+      .cta-container h2 {
+        font-size: 32px;
+      }
+
+      .cta-perks {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .testimonial-card {
+        min-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-background"></div>
+  <div class="floating-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="brand">QUOTEX TRADE</div>
+      <a href="https://t.me/+_yDRjxwfNHc4Yzk9" class="nav-cta" onclick="handleCTAClick(event);">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span>🔥</span>
+        <span>Premium Trading Platform</span>
+      </div>
+      <h1>
+        Trade Smarter,<br>
+        <span class="gradient-text">Earn Faster</span>
+      </h1>
+      <p class="hero-description">
+        Join thousands of successful traders mastering the markets with our proven strategies, real-time signals, and expert community support.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://t.me/+_yDRjxwfNHc4Yzk9" class="btn-primary" onclick="handleCTAClick(event);">
+          <span>Start Trading Today</span>
+          <span>→</span>
+        </a>
+        <a href="https://t.me/+_yDRjxwfNHc4Yzk9" class="btn-secondary" onclick="handleCTAClick(event);">
+          <span>Join Community</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-box">
+      <div class="stat-number">5K+</div>
+      <div class="stat-label">Active Traders</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Success Rate</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">Live Support</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">100+</div>
+      <div class="stat-label">Daily Signals</div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="section-title">
+      <div class="section-label">What We Offer</div>
+      <h2>Everything You Need to Win</h2>
+      <p>Professional tools and resources designed to maximize your trading success</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-item">
+        <div class="bento-icon">📊</div>
+        <h3>Expert Analysis</h3>
+        <p>Get deep market insights and professional analysis from experienced traders who know the markets inside out.</p>
+      </div>
+      <div class="bento-item">
+        <div class="bento-icon">⚡</div>
+        <h3>Real-Time Signals</h3>
+        <p>Receive instant trading signals with high accuracy delivered directly to your device throughout the trading day.</p>
+      </div>
+      <div class="bento-item">
+        <div class="bento-icon">🎓</div>
+        <h3>Step-by-Step Training</h3>
+        <p>Learn trading from scratch with comprehensive courses designed for all skill levels, beginner to advanced.</p>
+      </div>
+      <div class="bento-item">
+        <div class="bento-icon">🛡️</div>
+        <h3>Risk Management</h3>
+        <p>Master professional risk management techniques to protect your capital and trade with confidence.</p>
+      </div>
+      <div class="bento-item">
+        <div class="bento-icon">👥</div>
+        <h3>Active Community</h3>
+        <p>Connect with thousands of traders, share strategies, and learn from collective experience and success stories.</p>
+      </div>
+      <div class="bento-item">
+        <div class="bento-icon">🏆</div>
+        <h3>Proven Results</h3>
+        <p>Join traders who have transformed their financial future with our tested and verified trading strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="section-title">
+      <div class="section-label">Success Stories</div>
+      <h2>What Our Traders Say</h2>
+    </div>
+    <div class="testimonial-track">
+      <!-- First set -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">RK</div>
+          <div class="testimonial-info">
+            <h4>Rajesh Kumar</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Incredible platform! I went from complete beginner to profitable trader in just 3 months. The signals are spot-on and the community is amazing."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">PS</div>
+          <div class="testimonial-info">
+            <h4>Priya Sharma</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Best decision ever! The step-by-step training made everything so clear. Now I trade confidently and consistently make profits."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">AM</div>
+          <div class="testimonial-info">
+            <h4>Amit Mehta</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"The risk management strategies alone are worth it. I've saved thousands and my trading results have improved dramatically!"</p>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">RK</div>
+          <div class="testimonial-info">
+            <h4>Rajesh Kumar</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Incredible platform! I went from complete beginner to profitable trader in just 3 months. The signals are spot-on and the community is amazing."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">PS</div>
+          <div class="testimonial-info">
+            <h4>Priya Sharma</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Best decision ever! The step-by-step training made everything so clear. Now I trade confidently and consistently make profits."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">AM</div>
+          <div class="testimonial-info">
+            <h4>Amit Mehta</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"The risk management strategies alone are worth it. I've saved thousands and my trading results have improved dramatically!"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h2>Ready to Start Your Trading Journey?</h2>
+        <p>Join our elite community and get instant access to premium signals, expert training, and 24/7 support. Transform your trading today.</p>
+        <a href="https://t.me/+_yDRjxwfNHc4Yzk9" class="btn-primary" onclick="handleCTAClick(event);">
+          <span>Join Now - It's Free</span>
+          <span>🚀</span>
+        </a>
+        <div class="cta-perks">
+          <div class="perk">
+            <span>✓</span>
+            <span>Instant Access</span>
+          </div>
+          <div class="perk">
+            <span>✓</span>
+            <span>100+ Daily Signals</span>
+          </div>
+          <div class="perk">
+            <span>✓</span>
+            <span>Expert Support 24/7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-text">&copy; 2026 Lets Trade Quotex. All rights reserved.</p>
+    <p class="footer-text">Elite Trading Academy & Community Platform</p>
+    <div class="footer-links">
+      <a href="https://t.me/+_yDRjxwfNHc4Yzk9">Join Community</a>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Reviews</a>
+    </div>
+  </footer>
+
+  <script>
+    // CAPI Server URL and Landing Page Name
+    const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
+    const LANDING_PAGE_NAME = 'Peach2.0';
+
+    // Get Facebook cookies for better tracking
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    // Send event to CAPI server
+    function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
+
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
+
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
+
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
+    }
+
+    // Handle CTA button click
+    function handleCTAClick(event) {
+      // Client-side tracking
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Subscribe');
+      }
+
+      // Server-side tracking
+      sendToCapiServer('Subscribe');
+
+      // Allow navigation to continue
+      return true;
+    }
+
+    // Track PageView on load
+    if (document.readyState === 'complete') {
+      setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+      });
+    }
+  </script>
+
+</body>
+</html>
