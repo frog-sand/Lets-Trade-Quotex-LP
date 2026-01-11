@@ -852,7 +852,8 @@
   <script>
     // CAPI Server URL and Landing Page Name
     const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
-    const LANDING_PAGE_NAME = 'Grey2.0';
+    const LANDING_PAGE_NAME = 'Grey';
+    const CAPI_TOKEN = 'EAARW0zbv2DMBQW3y0VfyR1b3022lysTNS8XplBcXkReB88mx7YhFOajRpz1MZAnQGkTqw64pFSW5CuZBAo8JTgU7FZBkTmZAfz0wJPM0BZAP26EUFpnw9zxF2OO3OUZAmmTlMQ4XVixu4nXPzglVKjOT99Ly00ZBZCW0U7NUPOthLonraxZB11359HKVTxSTo5M7J6QZDZD';
 
     // Get Facebook cookies for better tracking
     function getCookie(name) {
@@ -887,6 +888,7 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + CAPI_TOKEN,
             },
             body: JSON.stringify(payload),
             signal: controller.signal,
