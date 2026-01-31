@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lets Trade Quotex - Professional Trading Excellence</title>
+  
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --grey-primary: #8b9dc3;
+      --grey-secondary: #6b7b9f;
+      --grey-light: #b8c5d9;
+      --grey-dark: #4a5a7a;
+      --bg-dark: #0a0c10;
+      --bg-card: #12151a;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-dark);
+      color: #ffffff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Minimal Top Bar */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 12, 16, 0.8);
+      
+      border-bottom: 1px solid rgba(139, 157, 195, 0.08);
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--grey-light);
+      letter-spacing: -0.5px;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #888;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: none;
+    }
+
+    .nav-link:hover {
+      color: var(--grey-primary);
+    }
+
+    .top-cta {
+      background: linear-gradient(135deg, var(--grey-primary), var(--grey-secondary));
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: none;
+    }
+
+    .top-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Full Screen Split Hero */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      position: relative;
+      margin-top: 72px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+      background: linear-gradient(135deg, rgba(139, 157, 195, 0.03) 0%, transparent 100%);
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--grey-primary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 32px;
+      opacity: 1;
+    }
+
+    
+      .hero-left h1 {
+      font-size: 76px;
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 40px;
+      letter-spacing: -3px;
+      opacity: 1;
+    }
+
+    .hero-left h1 .highlight {
+      color: var(--grey-primary);
+    }
+
+    .hero-description {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #999;
+      max-width: 520px;
+      margin-bottom: 48px;
+      opacity: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      opacity: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--grey-primary), var(--grey-secondary));
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      
+    }
+
+    
+      50% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      transition: none;
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(139, 157, 195, 0.3);
+      color: var(--grey-light);
+    }
+
+    .btn-outline:hover {
+      background: rgba(139, 157, 195, 0.1);
+      border-color: var(--grey-primary);
+    }
+
+    /* Hero Right - Image Collage */
+    .hero-right {
+      position: relative;
+      background: linear-gradient(135deg, rgba(139, 157, 195, 0.05) 0%, rgba(107, 123, 159, 0.05) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+      overflow: hidden;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 600px;
+    }
+
+    .image-box {
+      aspect-ratio: 1;
+      background: var(--bg-card);
+      border: 1px solid rgba(139, 157, 195, 0.15);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      transition: none;
+      
+    }
+
+    .image-box:nth-child(1) {  }
+    .image-box:nth-child(2) {  }
+    .image-box:nth-child(3) {  }
+    .image-box:nth-child(4) {  }
+
+    
+      50% { transform: translateY(-15px); }
+    }
+
+    .image-box:hover {
+      border-color: var(--grey-primary);
+      transform: scale(1.05) !important;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .box-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .box-number {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--grey-primary);
+      margin-bottom: 8px;
+    }
+
+    .box-label {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Content Sections */
+    .section {
+      padding: 140px 80px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto 100px;
+      text-align: center;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--grey-primary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+    }
+
+    .section-intro h2 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+    }
+
+    .section-intro p {
+      font-size: 18px;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* Two Column Features */
+    .features-two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .feature-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(139, 157, 195, 0.1);
+      border-radius: 32px;
+      padding: 56px;
+      transition: none;
+    }
+
+    .feature-box:hover {
+      border-color: var(--grey-primary);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon-wrapper {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--grey-primary), var(--grey-secondary));
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin-bottom: 32px;
+    }
+
+    .feature-box h3 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .feature-box p {
+      color: #999;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Testimonials - Three Column */
+    .testimonials-section {
+      background: rgba(18, 21, 26, 0.5);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .testimonial-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(139, 157, 195, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      transition: none;
+    }
+
+    .testimonial-box:hover {
+      border-color: var(--grey-primary);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-top {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--grey-primary), var(--grey-secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-info h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-stars {
+      color: #fbbf24;
+      font-size: 13px;
+    }
+
+    .testimonial-quote {
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Final CTA - Centered Box */
+    .final-cta-section {
+      padding: 160px 80px;
+      text-align: center;
+    }
+
+    .cta-box-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(139, 157, 195, 0.08) 0%, rgba(107, 123, 159, 0.08) 100%);
+      border: 2px solid rgba(139, 157, 195, 0.2);
+      border-radius: 48px;
+      padding: 80px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(139, 157, 195, 0.1), transparent 30%);
+      
+    }
+
+    
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box-wrapper h2 {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 28px;
+      letter-spacing: -2px;
+    }
+
+    .cta-box-wrapper p {
+      font-size: 20px;
+      color: #999;
+      margin-bottom: 48px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta-perks-row {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .perk-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--grey-light);
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 80px;
+      border-top: 1px solid rgba(139, 157, 195, 0.1);
+      text-align: center;
+    }
+
+    .footer-text {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .footer-menu {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-menu a {
+      color: var(--grey-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: none;
+    }
+
+    .footer-menu a:hover {
+      color: var(--grey-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        padding: 60px 40px;
+      }
+
+      .hero-right {
+        padding: 60px 40px;
+        min-height: 500px;
+      }
+
+      .features-two-col,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 20px;
+      }
+
+      .top-nav {
+        gap: 12px;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      .top-cta {
+        display: block;
+        font-size: 13px;
+        padding: 10px 20px;
+      }
+
+      .hero-left h1 {
+        font-size: 48px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 80px 20px;
+      }
+
+      .section-intro h2 {
+        font-size: 36px;
+      }
+
+      .feature-box {
+        padding: 32px;
+      }
+
+      .final-cta-section {
+        padding: 100px 20px;
+      }
+
+      .cta-box-wrapper {
+        padding: 60px 30px;
+      }
+
+      .cta-box-wrapper h2 {
+        font-size: 36px;
+      }
+
+      .cta-perks-row {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      footer {
+        padding: 60px 20px;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topbar {
+        padding: 16px;
+      }
+
+      .logo-text {
+        font-size: 16px;
+      }
+
+      .top-cta {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+
+      .hero-left {
+        padding: 40px 20px;
+      }
+
+      .hero-left h1 {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .section {
+        padding: 60px 16px;
+      }
+
+      .section-intro h2 {
+        font-size: 28px;
+      }
+
+      .final-cta-section {
+        padding: 80px 16px;
+      }
+
+      .cta-box-wrapper {
+        padding: 40px 20px;
+      }
+
+      .cta-box-wrapper h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <nav class="topbar">
+    <div class="logo-text">Let's Trade Quotex</div>
+    <div class="top-nav">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#testimonials" class="nav-link">Reviews</a>
+      <a href="https://t.me/+beJaTDlk9o5mYWFl" class="top-cta" onclick="handleCTAClick(event);">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Split Screen -->
+  <section class="hero-split">
+    <div class="hero-left">
+      <div class="hero-label">Trade with LTQ Expert Signals</div>
+      <h1>
+        Trade With<br>
+        <span class="highlight">LTQ EXPERT SIGNALS</span>
+      </h1>
+      <p class="hero-description">
+        Join 5,000+ successful traders who transformed their financial future with expert strategies, live market signals, and professional community support.
+      </p>
+      <div class="hero-actions">
+        <a href="https://t.me/+beJaTDlk9o5mYWFl" class="btn btn-primary" onclick="handleCTAClick(event);">
+          <span>JOIN NOW</span>
+          <span>→</span>
+        </a>
+        <a href="https://t.me/+beJaTDlk9o5mYWFl" class="btn btn-outline" onclick="handleCTAClick(event);">
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="image-grid">
+        <div class="image-box">
+          <div class="box-icon">👥</div>
+          <div class="box-number">5K+</div>
+          <div class="box-label">Active Traders</div>
+        </div>
+        <div class="image-box">
+          <div class="box-icon">📊</div>
+          <div class="box-number">98%</div>
+          <div class="box-label">Success Rate</div>
+        </div>
+        <div class="image-box">
+          <div class="box-icon">⚡</div>
+          <div class="box-number">100+</div>
+          <div class="box-label">Daily Signals</div>
+        </div>
+        <div class="image-box">
+          <div class="box-icon">🏆</div>
+          <div class="box-number">24/7</div>
+          <div class="box-label">Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="section-intro">
+      <div class="section-tag">What We Offer</div>
+      <h2>Everything You Need to Succeed</h2>
+      <p>Professional tools and expert guidance designed to help you master trading and achieve consistent results.</p>
+    </div>
+    <div class="features-two-col">
+      <div class="feature-box">
+        <div class="feature-icon-wrapper">📚</div>
+        <h3>Expert Training</h3>
+        <p>Comprehensive step-by-step courses from beginner to advanced, taught by professional traders with proven track records in the markets.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon-wrapper">📡</div>
+        <h3>Live Market Signals</h3>
+        <p>Real-time trading signals with 98% accuracy delivered instantly to your device. Never miss a profitable opportunity.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon-wrapper">🛡️</div>
+        <h3>Risk Management</h3>
+        <p>Master professional risk management strategies to protect your capital and maximize returns in any market condition.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon-wrapper">👥</div>
+        <h3>Active Community</h3>
+        <p>Connect with thousands of traders worldwide, share strategies, and learn from collective experience and success stories.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon-wrapper">📈</div>
+        <h3>Market Analysis</h3>
+        <p>Daily professional market analysis and expert insights to help you make informed trading decisions with confidence.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon-wrapper">⚡</div>
+        <h3>24/7 Support</h3>
+        <p>Round-the-clock expert support team ready to answer questions and help you succeed in your trading journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="section-intro">
+      <div class="section-tag">Success Stories</div>
+      <h2>Trusted by Thousands</h2>
+      <p>See what our community members are saying about their trading transformation</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-box">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">RK</div>
+          <div class="testimonial-info">
+            <h4>Rajesh Kumar</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">"This platform changed everything for me. I went from complete beginner to profitable trader in just 3 months. The signals are incredibly accurate and the support is amazing."</p>
+      </div>
+      <div class="testimonial-box">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">PS</div>
+          <div class="testimonial-info">
+            <h4>Priya Sharma</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">"The training materials are top-notch and the community is so helpful. I now trade confidently and consistently make profits. Highly recommend to anyone serious about trading."</p>
+      </div>
+      <div class="testimonial-box">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">AM</div>
+          <div class="testimonial-info">
+            <h4>Amit Mehta</h4>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-quote">"Best decision I've made this year! The risk management strategies saved me thousands and my trading results have improved dramatically. Worth every penny."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta-section">
+    <div class="cta-box-wrapper">
+      <div class="cta-content">
+        <h2>Ready to Start Your Trading Journey?</h2>
+        <p>Join our elite community today and get instant access to premium signals, expert training, and 24/7 professional support. Transform your trading today.</p>
+        <a href="https://t.me/+beJaTDlk9o5mYWFl" class="btn btn-primary" onclick="handleCTAClick(event);">
+          <span>Join Now - It's Free</span>
+          <span>🚀</span>
+        </a>
+        <div class="cta-perks-row">
+          <div class="perk-item">
+            <span>✓</span>
+            <span>Instant Access</span>
+          </div>
+          <div class="perk-item">
+            <span>✓</span>
+            <span>100+ Daily Signals</span>
+          </div>
+          <div class="perk-item">
+            <span>✓</span>
+            <span>Expert Support 24/7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-text">&copy; 2026 Lets Trade Quotex. All rights reserved.</p>
+    <p class="footer-text">Professional Trading Education & Community Platform</p>
+    <nav class="footer-menu">
+      <a href="https://t.me/+beJaTDlk9o5mYWFl">Join Community</a>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Reviews</a>
+    </nav>
+  </footer>
+
+  <script>
+    // CAPI Server URL and Landing Page Name
+    const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
+    const LANDING_PAGE_NAME = 'Grey3.0';
+    const CAPI_TOKEN = 'EAARW0zbv2DMBQW3y0VfyR1b3022lysTNS8XplBcXkReB88mx7YhFOajRpz1MZAnQGkTqw64pFSW5CuZBAo8JTgU7FZBkTmZAfz0wJPM0BZAP26EUFpnw9zxF2OO3OUZAmmTlMQ4XVixu4nXPzglVKjOT99Ly00ZBZCW0U7NUPOthLonraxZB11359HKVTxSTo5M7J6QZDZD';
+
+    // Get Facebook cookies for better tracking
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    // Send event to CAPI server
+    function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
+
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
+
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
+
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + CAPI_TOKEN,
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
+    }
+
+    // Handle CTA button click
+    function handleCTAClick(event) {
+      // Client-side tracking
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Subscribe');
+      }
+
+      // Server-side tracking
+      sendToCapiServer('Subscribe');
+
+      // Allow navigation to continue
+      return true;
+    }
+
+    // Track PageView on load
+    if (document.readyState === 'complete') {
+      setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+      });
+    }
+  </script>
+
+  <!-- Meta Pixel Code - Loaded after page content -->
+  <script>
+  // Load Facebook Pixel asynchronously after a delay
+  setTimeout(function() {
+    window.fbAsyncInit = function() {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1759686538046553');
+    fbq('track', 'PageView');
+  };
+  // Defer pixel loading until page is interactive
+  if (document.readyState === 'complete') {
+    window.fbAsyncInit();
+  } else {
+    window.addEventListener('load', window.fbAsyncInit);
+  }
+  }, 1000); // Load after 1 second delay
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1759686538046553&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+</body>
+</html>
