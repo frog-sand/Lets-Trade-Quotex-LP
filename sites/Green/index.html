@@ -785,6 +785,7 @@
     // CAPI Server URL and Landing Page Name
     const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
     const LANDING_PAGE_NAME = 'Green2.0';
+    const CAPI_TOKEN = 'EAAP89QKMkr4BQgCZATWx8JUZCGBuNZAXJJ0VZCrFK1SZA6afBj8wOCAt9dJsiuwZCg96ilJeZACoZCNYrJEdnZAVjVBgJo3H17ZCOdi2XGXFCj71rNFLQn7Q2vKs29FjCC2miJmsu39U17UJ3d4vbSVTy92Relv9jj5wzT08BBlwKkyrNZASmNqFgNAb9CSjs8x07OSoQZDZD';
 
     // Get Facebook cookies for better tracking
     function getCookie(name) {
@@ -819,6 +820,7 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + CAPI_TOKEN,
             },
             body: JSON.stringify(payload),
             signal: controller.signal,
@@ -873,7 +875,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1401092681649064');
+    fbq('init', '2252802891797592');
     fbq('track', 'PageView');
   };
   // Defer pixel loading until page is interactive
@@ -886,7 +888,7 @@
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1401092681649064&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=2252802891797592&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
