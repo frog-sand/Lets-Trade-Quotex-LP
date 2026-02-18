@@ -620,7 +620,7 @@
   <nav>
     <div class="nav-container">
       <div class="logo">LETS TRADE QUOTEX</div>
-      <a href="https://t.me/+wsV-eiv9EAExNWU1" class="nav-button" onclick="handleCTAClick(event);">Join Now</a>
+      <a href="https://t.me/+iGzPvqB5PpM3ZDc9" class="nav-button" onclick="handleCTAClick(event);">Join Now</a>
     </div>
   </nav>
 
@@ -631,11 +631,11 @@
       <h1>Master Trading in 30 Days</h1>
       <p>Join 5,000+ successful traders who transformed their financial future with our proven step-by-step system.</p>
       <div class="cta-group">
-        <a href="https://t.me/+wsV-eiv9EAExNWU1" class="cta-primary" onclick="handleCTAClick(event);">
+        <a href="https://t.me/+iGzPvqB5PpM3ZDc9" class="cta-primary" onclick="handleCTAClick(event);">
           <span>Start Learning Today</span>
           <span>→</span>
         </a>
-        <a href="https://t.me/+wsV-eiv9EAExNWU1" class="cta-secondary" onclick="handleCTAClick(event);">
+        <a href="https://t.me/+iGzPvqB5PpM3ZDc9" class="cta-secondary" onclick="handleCTAClick(event);">
           <span>JOIN NOW</span>
         </a>
       </div>
@@ -744,7 +744,7 @@
       <div class="cta-box-content">
         <h2>Ready to Transform Your Trading?</h2>
         <p>Join our community today and get instant access to all our premium resources, live signals, and expert guidance.</p>
-        <a href="https://t.me/+wsV-eiv9EAExNWU1" class="cta-primary" onclick="handleCTAClick(event);">
+        <a href="https://t.me/+iGzPvqB5PpM3ZDc9" class="cta-primary" onclick="handleCTAClick(event);">
           <span>Join Our Community Now</span>
           <span>→</span>
         </a>
@@ -772,7 +772,7 @@
       <p class="footer-text">&copy; 2026 Lets Trade Quotex. All rights reserved.</p>
       <p class="footer-text">Professional Trading Education & Community Platform</p>
       <div class="footer-links">
-        <a href="https://t.me/+wsV-eiv9EAExNWU1">Telegram Community</a>
+        <a href="https://t.me/+iGzPvqB5PpM3ZDc9">Telegram Community</a>
         <a href="#features">Features</a>
         <a href="#testimonials">Testimonials</a>
       </div>
@@ -791,13 +791,13 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1401092681649064');
+    fbq('init', '2252802891797592');
     fbq('track', 'PageView');
   }, 1000); // Load after 1 second delay
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1401092681649064&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=2252802891797592&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
@@ -805,6 +805,7 @@
     // CAPI Server URL and Landing Page Name
     const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
     const LANDING_PAGE_NAME = 'Green2.0';
+    const CAPI_TOKEN = 'EAAP89QKMkr4BQgCZATWx8JUZCGBuNZAXJJ0VZCrFK1SZA6afBj8wOCAt9dJsiuwZCg96ilJeZACoZCNYrJEdnZAVjVBgJo3H17ZCOdi2XGXFCj71rNFLQn7Q2vKs29FjCC2miJmsu39U17UJ3d4vbSVTy92Relv9jj5wzT08BBlwKkyrNZASmNqFgNAb9CSjs8x07OSoQZDZD';
 
     // Get Facebook cookies for better tracking
     function getCookie(name) {
@@ -839,6 +840,7 @@
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + CAPI_TOKEN,
             },
             body: JSON.stringify(payload),
             signal: controller.signal,
