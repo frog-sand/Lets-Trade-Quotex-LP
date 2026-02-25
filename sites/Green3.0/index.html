@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lets Trade Quotex - Professional Trading Platform</title>
+
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0f0d;
+      color: #ffffff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.15;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
+
+    }
+
+
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 15, 13, 0.95);
+
+      border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+      padding: 20px 0;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-button {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hero Section - Split Design */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      gap: 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 62px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #9ca3af;
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      transition: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+
+    }
+
+
+      50% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .cta-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: none;
+    }
+
+    .cta-primary:hover::before {
+      left: 100%;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      transition: none;
+      border: 2px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10b981;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 24px;
+      padding: 32px;
+      transition: none;
+
+    }
+
+    .stat-card:nth-child(2) {
+
+      margin-left: 40px;
+    }
+
+    .stat-card:nth-child(3) {
+
+    }
+
+
+      50% { transform: translateY(-10px); }
+    }
+
+    .stat-card:hover {
+      border-color: #10b981;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features {
+      position: relative;
+      max-width: 1280px;
+      margin: 120px auto;
+      padding: 0 40px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .section-header h2 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .section-header p {
+      font-size: 20px;
+      color: #9ca3af;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-item {
+      background: rgba(16, 185, 129, 0.05);
+
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      transition: none;
+    }
+
+    .feature-item:hover {
+      border-color: #10b981;
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .feature-item h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .feature-item p {
+      color: #9ca3af;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      position: relative;
+      max-width: 1280px;
+      margin: 120px auto;
+      padding: 0 40px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .testimonial-card {
+      background: rgba(16, 185, 129, 0.05);
+
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      border-radius: 24px;
+      padding: 32px;
+      transition: none;
+    }
+
+    .testimonial-card:hover {
+      border-color: #10b981;
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .testimonial-info h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-info .stars {
+      color: #fbbf24;
+      font-size: 14px;
+    }
+
+    .testimonial-text {
+      color: #d1d5db;
+      line-height: 1.6;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      max-width: 1080px;
+      margin: 120px auto;
+      padding: 0 40px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 32px;
+      padding: 80px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+
+    }
+
+
+      100% { transform: rotate(360deg); }
+    }
+
+    .cta-box-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box h2 {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .cta-box p {
+      font-size: 18px;
+      color: #9ca3af;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #10b981;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(16, 185, 129, 0.1);
+      padding: 60px 40px 40px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 500;
+      transition: none;
+    }
+
+    .footer-links a:hover {
+      color: #059669;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-group {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .stat-card:nth-child(2) {
+        margin-left: 0;
+      }
+
+      .features-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      .hero {
+        padding: 40px 20px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        padding: 14px 28px;
+        font-size: 16px;
+      }
+
+      .section-header h2 {
+        font-size: 32px;
+      }
+
+      .features,
+      .testimonials,
+      .cta-section {
+        padding: 0 20px;
+        margin: 80px auto;
+      }
+
+      .cta-box {
+        padding: 60px 30px;
+      }
+
+      .cta-box h2 {
+        font-size: 28px;
+      }
+
+      .cta-benefits {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">LETS TRADE QUOTEX</div>
+      <a href="https://t.me/+jl86GPY_X4lhZDU1" class="nav-button" onclick="handleCTAClick(event);">Join Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">🚀 Premium Trading Education</span>
+      <h1>Master Trading in 30 Days</h1>
+      <p>Join 5,000+ successful traders who transformed their financial future with our proven step-by-step system.</p>
+      <div class="cta-group">
+        <a href="https://t.me/+jl86GPY_X4lhZDU1" class="cta-primary" onclick="handleCTAClick(event);">
+          <span>Start Learning Today</span>
+          <span>→</span>
+        </a>
+        <a href="https://t.me/+jl86GPY_X4lhZDU1" class="cta-secondary" onclick="handleCTAClick(event);">
+          <span>JOIN NOW</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-card">
+        <div class="stat-number">5,000+</div>
+        <div class="stat-label">Active Traders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Expert Support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <span class="section-badge">Why Choose Us</span>
+      <h2>Everything You Need to Succeed</h2>
+      <p>Comprehensive tools and resources designed to help you become a confident, profitable trader</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">📚</div>
+        <h3>Expert Training</h3>
+        <p>Step-by-step courses from beginner to advanced, taught by professional traders with years of experience.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📈</div>
+        <h3>Live Signals</h3>
+        <p>Real-time trading signals with 98% accuracy delivered directly to your device throughout the day.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👥</div>
+        <h3>Community</h3>
+        <p>Join an active community of traders sharing strategies, insights, and success stories daily.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎯</div>
+        <h3>Risk Management</h3>
+        <p>Learn professional techniques to protect your capital and manage risks effectively in all market conditions.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <h3>Fast Results</h3>
+        <p>See real progress in weeks, not years. Our proven system is designed for rapid skill development.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <h3>Guaranteed Success</h3>
+        <p>Follow our system and succeed, or get personalized coaching until you reach your trading goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="section-header">
+      <span class="section-badge">Success Stories</span>
+      <h2>Trusted by Thousands</h2>
+      <p>See what our community members are saying about their trading journey</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">RK</div>
+          <div class="testimonial-info">
+            <h4>Rajesh Kumar</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"I went from zero knowledge to consistent profits in just 2 months. The step-by-step approach is perfect for beginners!"</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">PS</div>
+          <div class="testimonial-info">
+            <h4>Priya Sharma</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"The signals are incredibly accurate and the community support is amazing. I've never felt more confident trading!"</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">AM</div>
+          <div class="testimonial-info">
+            <h4>Amit Mehta</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Best investment I've made. The risk management alone has saved me thousands. Highly recommend to anyone serious about trading."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="cta-section">
+    <div class="cta-box">
+      <div class="cta-box-content">
+        <h2>Ready to Transform Your Trading?</h2>
+        <p>Join our community today and get instant access to all our premium resources, live signals, and expert guidance.</p>
+        <a href="https://t.me/+jl86GPY_X4lhZDU1" class="cta-primary" onclick="handleCTAClick(event);">
+          <span>Join Our Community Now</span>
+          <span>→</span>
+        </a>
+        <div class="cta-benefits">
+          <div class="benefit">
+            <span>✓</span>
+            <span>Instant Access</span>
+          </div>
+          <div class="benefit">
+            <span>✓</span>
+            <span>100+ Daily Signals</span>
+          </div>
+          <div class="benefit">
+            <span>✓</span>
+            <span>24/7 Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p class="footer-text">&copy; 2026 Lets Trade Quotex. All rights reserved.</p>
+      <p class="footer-text">Professional Trading Education & Community Platform</p>
+      <div class="footer-links">
+        <a href="https://t.me/+jl86GPY_X4lhZDU1">Telegram Community</a>
+        <a href="#features">Features</a>
+        <a href="#testimonials">Testimonials</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Meta Pixel Code - Loaded after page content -->
+  <script>
+  // Load Facebook Pixel asynchronously after a delay
+  setTimeout(function() {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2252802891797592');
+    fbq('track', 'PageView');
+  }, 1000); // Load after 1 second delay
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2252802891797592&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <script>
+    // CAPI Server URL and Landing Page Name
+    const CAPI_SERVER_URL = 'https://letstradequotex.com/api/track';
+    const LANDING_PAGE_NAME = 'Green2.0';
+    const CAPI_TOKEN = 'EAAP89QKMkr4BQgCZATWx8JUZCGBuNZAXJJ0VZCrFK1SZA6afBj8wOCAt9dJsiuwZCg96ilJeZACoZCNYrJEdnZAVjVBgJo3H17ZCOdi2XGXFCj71rNFLQn7Q2vKs29FjCC2miJmsu39U17UJ3d4vbSVTy92Relv9jj5wzT08BBlwKkyrNZASmNqFgNAb9CSjs8x07OSoQZDZD';
+
+    // Get Facebook cookies for better tracking
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    // Send event to CAPI server
+    function sendToCapiServer(eventName) {
+      // Use setTimeout to ensure this never blocks page load
+      setTimeout(function() {
+        try {
+          const fbp = getCookie('_fbp');
+          const fbc = getCookie('_fbc');
+
+          const payload = {
+            eventName: eventName,
+            eventSourceUrl: window.location.href,
+            userAgent: navigator.userAgent,
+            fbp: fbp,
+            fbc: fbc,
+            landingPage: LANDING_PAGE_NAME,
+          };
+
+          // Use fetch with AbortController for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 second timeout
+
+          fetch(CAPI_SERVER_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + CAPI_TOKEN,
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+            keepalive: true // Allow request to complete even if page unloads
+          }).then(function() {
+            clearTimeout(timeoutId);
+          }).catch(function() {
+            // Silently fail - don't affect user experience
+            clearTimeout(timeoutId);
+          });
+
+        } catch (error) {
+          // CAPI error suppressed - never block page
+        }
+      }, 0);
+    }
+
+    // Handle CTA button click
+    function handleCTAClick(event) {
+      // Client-side tracking
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Subscribe');
+      }
+
+      // Server-side tracking
+      sendToCapiServer('Subscribe');
+
+      // Allow navigation to continue
+      return true;
+    }
+
+    // Track PageView on load
+    if (document.readyState === 'complete') {
+      setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(function() { sendToCapiServer('PageView'); }, 100);
+      });
+    }
+  </script>
+
+</body>
+</html>
